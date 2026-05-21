@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Tecnología Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="productos_limpios.css">
+</head>
+<body style="background-color: black;">
+
+    <header>
+        <div class="contenerdo-menu">
+            <a href="index.html">
+                <img src="logo_Tc.jpg" alt="Logo" class="logo-mini">
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="mantenimiento.html">Mantenimiento</a>
+                <a href="contacto.html">Contacto</a>
+    
+                <a href="panel.html" id="btn-panel-admin" style="display: none; background-color: #ffcc00; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; text-decoration: none; margin-right: 10px;">⚙️ Panel</a>
+
+                <div class="usuario-gestion" id="session-container">
+                    <div class="user-trigger" id="user-trigger" style="cursor: pointer;">
+                        <span id="user-display-name" style="color: white; font-weight: bold; margin-right: 10px;">Iniciar Sesión</span>
+                        <span class="user-icon">👤</span>
+                    </div>
+
+                    <div id="account-dropdown" class="dropdown-content">
+                        <div class="dropdown-header">Cuentas activas</div>
+                        <ul id="accounts-list">
+                        </ul>
+                        <hr>
+                        <a href="Iniciar S.html" id="link-añadir-cuenta" class="dropdown-link">➕ Añadir cuenta</a>
+                        <a href="/logout" id="btn-logout" class="dropdown-link logout">❌ Cerrar sesión</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div style="height: 100px;"></div>
+
+    <main class="seccion-catalogo">
+    <h1 class="titulo-pagina">Catálogo de Equipos y Accesorios</h1>
+
+    <!-- Solo deja esto, el JS se encarga del resto -->
+    <div id="contenedor-productos" style="display: flex; flex-wrap: wrap; justify-content: center; padding: 20px;">
+        <p style="color: white;">Cargando catálogo...</p>
+    </div>
+</main>
+
+    <script src="script.js"></script>
+    <script src="auth-check.js"></script>
+    <!-- Agregamos tu nuevo script de productos -->
+    <script src="productos.js"></script>
+</body>
+</html>

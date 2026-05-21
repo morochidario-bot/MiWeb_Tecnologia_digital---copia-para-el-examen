@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Agregar Producto</title>
+    <!-- Enlazamos el nuevo CSS -->
+    <link rel="stylesheet" href="ingresar-producto.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Registrar Nuevo Equipo</h2>
+        
+        <form id="formProducto" enctype="multipart/form-data">
+            <div class="campo">
+                <label>Nombre del Equipo</label>
+                <input type="text" name="nombre_equipo" placeholder="Ej: Cámara Nikon D7500" required>
+            </div>
+
+            <div class="campo">
+                <label>Marca</label>
+                <input type="text" name="marca" placeholder="Ej: Nikon" required>
+            </div>
+
+            <div class="campo">
+                <label>Descripción</label>
+                <textarea name="descripcion" rows="3" placeholder="Detalles técnicos..."></textarea>
+            </div>
+
+            <div class="campo">
+                <label>Precio ($)</label>
+                <input type="number" name="precio" step="0.01" placeholder="0.00" required>
+            </div>
+
+            <div class="campo">
+                <label>Stock</label>
+                <input type="number" name="stock" placeholder="Cantidad disponible" required>
+            </div>
+
+            <div class="campo">
+                <label>Imagen del Producto</label>
+                <input type="file" name="imagen" accept="image/*" required>
+            </div>
+
+            <button type="submit">SUBIR AL CATÁLOGO</button>
+            <a href="panel.html" class="btn-volver">Volver al Panel</a>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('formProducto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('/guardar-producto', {
+                    method: 'POST',
+                    body: formData
+                });
+                const resultado = await response.text();
+                alert(resultado);
+                if (response.ok) e.target.reset();
+            } catch (error) {
+                alert('Error al conectar con el servidor.');
+            }
+        });
+    </script>
+</body>
+</html>

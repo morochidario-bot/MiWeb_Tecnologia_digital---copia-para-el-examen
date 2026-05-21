@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.auth-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.auth-image-side {
+    flex: 1;
+    background-color: #f36f21; 
+    background-image: url('local.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+@media (max-width: 768px) {
+    .auth-image-side {
+        display: none;
+    }
+}
+
+/* LADO DEL FORMULARIO */
+.auth-form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+}
+
+.form-content {
+    max-width: 400px;
+    width: 100%;
+}
+
+.header-form h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.header-form p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* INPUTS */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #f36f21;
+}
+
+/* BOTÓN */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: #f36f21;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #d65a10;
+}
+
+/* ERROR */
+.error-box {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #ef9a9a;
+}
+
+/* FOOTER */
+.form-footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form-footer a {
+    color: #f36f21;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #888 !important;
+    font-size: 0.9rem;
+}

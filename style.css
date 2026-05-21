@@ -1,0 +1,410 @@
+/* --- CONFIGURACIONES GENERALES --- */
+html {
+    scroll-behavior: smooth; /* Mágico: Desplazamiento suave para el botón de Más Información */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #3e89bb; 
+    padding: 12px 0;
+    color: white;
+    border-bottom: 3px solid #07558a; 
+}
+
+.contenerdo-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo-mini {
+    height: 40px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f37021; 
+}
+
+/* --- ESTILOS PARA LA GESTIÓN DE CUENTAS --- */
+
+.usuario-gestion {
+    position: relative; /* Necesario para que el dropdown flote respecto a esto */
+    margin-left: 20px;
+}
+
+.user-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.user-trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-icon {
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+/* El cuadro desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: #022a4e; 
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+/* Clase que activaremos con JS */
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.dropdown-header {
+    padding: 12px;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+}
+
+#accounts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-item {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.account-item:hover {
+    background-color: #333;
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #25D366; /* Verde online */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 15px;
+    color: #3e89bb; /* Azul de tu marca */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.dropdown-link:hover {
+    background-color: #222;
+}
+
+.dropdown-link.logout {
+    color: #ff4d4d;
+    border-top: 1px solid #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- TUS OTROS ESTILOS (Hero, Fotos, etc.) --- */
+.hero {
+    display: flex;
+    justify-content: flex-start; 
+    padding: 80px 10%; 
+    background-color: #ffffff;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px; 
+    max-width: 1200px;
+}
+
+.logo-grande img {
+    width: 280px; 
+    height: auto;
+}
+
+.texto-principal h1 {
+    font-size: 3rem;
+    color: #003356;
+    margin: 0 0 10px 0;
+}
+
+.servicio {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.btn-cotizar {
+    background-color: #3698be; 
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-cotizar:hover {
+    background-color: #028ac0;
+    transform: scale(1.05); 
+}
+
+.tagline {
+    margin-top: 20px;
+    font-style: italic;
+    color: #888;
+}
+
+.fotos-inferiores {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 5%;
+    background-color: #f8f9fa;
+}
+
+.caja-foto {
+    width: 320px;
+    height: 200px;
+    overflow: hidden; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    border: 2px solid white;
+}
+
+.caja-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.caja-foto:hover img {
+    transform: scale(1.1); 
+}
+
+/* Para pantallas de celulares */
+@media (max-width: 768px) {
+    header .contenerdo-menu {
+        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        height: auto !important;
+        padding: 10px;
+    }
+
+    header nav {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los links bajen a la siguiente línea si no caben */
+        justify-content: center;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    header nav a {
+        font-size: 14px; /* Letra un poco más pequeña para que quepa todo */
+        padding: 5px 8px;
+    }
+}
+
+/* ========================================================= */
+/* SECCIÓN NUEVA: LONA BANNER (OCULTA POR DEFECTO CON DISPLAY NONE) */
+/* ========================================================= */
+.seccion-banner {
+    display: none; /* Asegura que no se vea al cargar la página */
+    background: linear-gradient(135deg, #ffffff 0%, #edf1f7 100%); /* Sombreado elegante en la parte de atrás */
+    padding: 70px 5%;
+    border-top: 3px solid #003356; 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Clase mágica activada por JS al aplastar el botón */
+.seccion-banner.mostrar {
+    display: flex !important; /* Se vuelve visible */
+    justify-content: center;
+    opacity: 1;
+    animation: desplegarSuave 0.6s ease-out forwards;
+}
+
+.contenedor-banner {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.texto-banner {
+    flex: 1.2;
+}
+
+.texto-banner h2 {
+    color: #003356; 
+    font-size: 2.3rem;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.texto-banner h3 {
+    color: #d32f2f; 
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 25px 0;
+    font-weight: bold;
+}
+
+.texto-banner p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.lista-equipos {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.lista-equipos li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+    position: relative;
+    padding-left: 25px;
+}
+
+.lista-equipos li::before {
+    content: "■";
+    color: #3698be; 
+    font-size: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}
+
+.marcas-texto {
+    background-color: rgba(0, 51, 86, 0.04);
+    border-left: 5px solid #003356;
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.marcas-texto p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #444;
+}
+
+.marcas-texto span {
+    font-weight: bold;
+    color: #003356;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+.imagen-banner {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+/* CORRECCIÓN: Estilos robustos para asegurar que la imagen de la lona asome perfectamente */
+.imagen-banner img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease;
+}
+
+.imagen-banner img:hover {
+    transform: scale(1.03); 
+}
+
+/* Animación de entrada de la sección */
+@keyframes desplegarSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Adaptación para pantallas medianas o ventanas pequeñas */
+@media (max-width: 950px) {
+    .contenedor-banner {
+        flex-direction: column-reverse; 
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .lista-equipos li {
+        padding-left: 0;
+    }
+    
+    .lista-equipos li::before {
+        display: none;
+    }
+    
+    .marcas-texto {
+        border-left: none;
+        border-top: 4px solid #003356;
+        border-radius: 0;
+    }
+}

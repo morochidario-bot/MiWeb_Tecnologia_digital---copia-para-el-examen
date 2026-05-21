@@ -1,0 +1,193 @@
+/* ======================================================
+   1. VARIABLES Y ESTILOS BASE
+   ====================================================== */
+:root {
+    --primary: #1a73e8;
+    --success: #188038;
+    --danger: #d93025;
+    --warning: #fbbc04;
+    --bg-gray: #3e89bb; /* El azul de tu logo */
+    --border: #3e89bb;
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f0f2f5; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* ======================================================
+   2. BARRA DE NAVEGACIÓN (NAVBAR)
+   ====================================================== */
+.main-nav {
+    background-color: var(--bg-gray);
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.nav-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 50px;
+    background: white;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-logout-nav {
+    background-color: var(--danger) !important;
+}
+
+/* ======================================================
+   3. CONTENEDOR Y ENCABEZADO (Aquí está el cambio del botón)
+   ====================================================== */
+.container { 
+    max-width: 1300px; 
+    margin: 20px auto; 
+    background: white; 
+    padding: 25px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+header {
+    border-bottom: 2px solid var(--bg-gray);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+/* ESTO ALINEA EL TÍTULO CON EL BOTÓN AZUL */
+.titulo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 { color: var(--primary); margin: 0; font-size: 24px; }
+header p { color: #5f6368; margin: 5px 0 0 0; }
+
+/* ESTILO DEL BOTÓN "IR AL INICIO" */
+.btn-ir-inicio {
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.2);
+    border: none;
+}
+
+.btn-ir-inicio:hover {
+    background-color: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ======================================================
+   4. TABLA DE DATOS
+   ====================================================== */
+.table-container { overflow-x: auto; }
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 10px;
+}
+
+th { 
+    background-color: var(--bg-gray); 
+    color: white; 
+    padding: 15px; 
+    text-align: left; 
+    text-transform: uppercase; 
+    font-size: 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+td { 
+    padding: 15px; 
+    border-bottom: 1px solid #eee; 
+    font-size: 14px;
+}
+
+tr:hover { background-color: #f8f9ff; }
+
+/* BOTONES DENTRO DE LA TABLA */
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-print { background-color: #e8f0fe; color: var(--primary); }
+.btn-print:hover { background-color: var(--primary); color: white; }
+
+.btn-delete { background-color: #fce8e6; color: var(--danger); }
+.btn-delete:hover:not(:disabled) { background-color: var(--danger); color: white; }
+.btn-delete:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* SALDOS Y ESTADOS */
+.saldo-rojo { color: var(--danger); font-weight: bold; }
+.saldo-verde { color: var(--success); font-weight: bold; }
+
+select { 
+    padding: 6px; 
+    border-radius: 5px; 
+    border: 1px solid var(--border);
+}
+
+.estado-revision { border-left: 5px solid var(--warning); }
+.estado-reparado { border-left: 5px solid var(--primary); }
+.estado-entregado { border-left: 5px solid var(--success); }
+
+@media (max-width: 1024px) {
+    /* Hace que la tabla se pueda deslizar de lado con el dedo */
+    .table-container {
+        overflow-x: auto;
+        display: block;
+    }
+    
+    table {
+        min-width: 800px; /* Evita que las columnas se hagan flacas */
+    }
+}

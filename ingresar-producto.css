@@ -1,0 +1,149 @@
+/* ======================================================
+   1. BASE Y CUERPO (Fondo y Letra)
+   ====================================================== */
+body {
+    background-color: #0b0b0b;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ======================================================
+   2. LA GALERÍA DE PRODUCTOS (Grid)
+   ====================================================== */
+#contenedor-productos {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    padding: 40px 20px !important;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* LA TARJETA (El cuadro de cada producto) */
+.producto-card {
+    background: #161616 !important;
+    border-radius: 12px !important;
+    border: 1px solid #333 !important;
+    overflow: hidden !important;
+    width: 280px !important; /* Ancho fijo */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    border-color: #3498db !important;
+}
+
+/* EL CONTENEDOR DE LA IMAGEN (Para que no se desborde) */
+.img-container {
+    width: 100% !important;
+    height: 200px !important; /* Altura fija */
+    overflow: hidden !important;
+    background-color: #000;
+}
+
+/* LA FOTO (Domada finalmente) */
+.producto-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Corta lo sobrante sin estirar */
+    display: block !important;
+}
+
+/* INFO DEL PRODUCTO */
+.info {
+    padding: 15px;
+    text-align: center;
+}
+
+.info h3 {
+    color: #3498db;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.precio {
+    color: #2ecc71;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 10px 0;
+}
+
+/* ======================================================
+   3. ESTILOS DEL FORMULARIO (Ingresar Producto)
+   ====================================================== */
+.form-container {
+    background: #161616;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    margin: 40px auto; /* Centra el formulario */
+}
+
+h2 {
+    text-align: center;
+    color: #3498db;
+    margin-top: 0;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #3498db;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.btn-volver {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #777;
+    text-decoration: none;
+    font-size: 14px;
+}

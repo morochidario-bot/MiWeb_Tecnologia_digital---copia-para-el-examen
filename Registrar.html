@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar - Tecnología Digital</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-image-side" style="background-image: url('local.jpg');">
+        </div>
+
+        <div class="auth-form-side">
+            <div class="form-content">
+                <div class="header-form">
+                    <h2 id="titulo-secreto" style="cursor: pointer; user-select: none;">Crea tu cuenta</h2>
+                    <p>Únete a Tecnología Digital y disfruta de nuestros servicios</p>
+                </div>
+                
+                <form action="/registrar" method="POST">
+                    <div class="input-group">
+                        <label>Nombre completo</label>
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" name="correo" placeholder="ejemplo@td.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Teléfono</label>
+                        <input type="tel" name="telefono" placeholder="099..." required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" placeholder="••••••••" required>
+                    </div>
+                    
+                    <div id="campo-admin" class="input-group" style="display: none; background-color: #f0f8ff; padding: 10px; border-radius: 5px; border: 1px dashed #007bff;">
+                        <label style="color: #007bff; font-weight: bold;">Código de Acceso Especial</label>
+                        <input type="password" name="codigo_admin" placeholder="Clave maestra">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Registrarme</button>
+                </form>
+
+                <div class="form-footer">
+                    <p>¿Ya eres parte del equipo? <br>
+                    <a href="Iniciar S.html">Inicia sesión aquí</a></p>
+                    <a href="index.html" class="btn-back">← Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const titulo = document.getElementById('titulo-secreto');
+        const campoAdmin = document.getElementById('campo-admin');
+
+        // Escucha el doble clic en el título
+        titulo.addEventListener('dblclick', () => {
+            if (campoAdmin.style.display === 'none') {
+                campoAdmin.style.display = 'block';
+                console.log("Modo administrador activado");
+            } else {
+                campoAdmin.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

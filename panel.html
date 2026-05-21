@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Tecnología Digital</title>
+    <link rel="stylesheet" href="panel.css">
+    <!-- Iconos para que se vea bien el botón de inicio -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR PRINCIPAL -->
+<nav class="main-nav">
+    <div class="nav-content">
+        <div class="nav-left">
+            <img src="logo_Tc.jpg" alt="Logo" class="nav-logo"> 
+        </div>
+        <ul class="nav-links">
+            <li><a href="panel.html" class="active">Gestión de Órdenes</a></li>
+            <li><a href="ingresar-producto.html">Ingresar Productos</a></li>
+            <li><a href="/logout" class="btn-logout-nav">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <header>
+        <!-- Contenedor flexible para Título + Botón Azul -->
+        <div class="titulo-wrapper">
+            <h1>🛠️ Gestión de Órdenes</h1>
+            <a href="index.html" class="btn-ir-inicio">
+                <i class="fas fa-home"></i> Ir al Inicio
+            </a>
+        </div>
+        <p>Administre el estado de las reparaciones y pagos pendientes.</p>
+    </header>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>IMPRIMIR</th>
+                    <th>N° SERIE</th>
+                    <th>CLIENTE / CELULAR</th>
+                    <th>EQUIPO</th>
+                    <th>FALLA</th>
+                    <th>TOTAL</th>
+                    <th>SALDO</th>
+                    <th>ESTADO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-datos">
+                <!-- Este cuerpo se llena automáticamente con panel.js -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="panel.js"></script>
+</body>
+</html>

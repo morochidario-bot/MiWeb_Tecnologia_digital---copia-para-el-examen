@@ -1,0 +1,107 @@
+/* --- CONFIGURACIÓN DE LA PÁGINA --- */
+body {
+    background-color: #000000; /* Negro total */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+.titulo-pagina {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin: 40px 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* --- CONTENEDOR DE LA GALERÍA (GRID) --- */
+.seccion-catalogo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.galeria-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px; /* Espacio limpio entre productos */
+}
+
+/* --- CADA PRODUCTO (SIN BORDES) --- */
+.item-producto {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent; /* Sin fondo para que se funda con el negro */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Al pasar el mouse, el producto sube un poquito */
+.item-producto:hover {
+    transform: translateY(-8px);
+}
+
+/* --- ESTILO DE LAS IMÁGENES --- */
+.item-producto img {
+    width: 100%;
+    height: 300px; /* Altura fija para que todas se vean iguales */
+    object-fit: contain; /* Muestra la foto completa sin recortarla */
+    background-color: #0a0a0a; /* Fondo casi negro para la imagen */
+    border-radius: 4px; /* Esquinas apenas redondeadas */
+}
+
+/* --- TEXTOS DEL PRODUCTO --- */
+.info-producto {
+    padding: 15px 0;
+    text-align: left; /* Todo a la izquierda para un look moderno */
+}
+
+.info-producto h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #e0e0e0; /* Gris muy claro */
+    margin-bottom: 5px;
+}
+
+.info-producto .precio {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff; /* Blanco puro para el precio */
+}
+
+/* --- RESPONSIVE PARA CELULARES --- */
+@media (max-width: 600px) {
+    .galeria-grid {
+        grid-template-columns: 1fr; /* Una sola columna en teléfonos */
+        gap: 30px;
+    }
+    
+    .item-producto img {
+        height: 250px;
+    }
+}
+/* --- ESTO ES PARA CELULARES --- */
+@media (max-width: 600px) {
+    #contenedor-productos {
+        display: flex !important;
+        flex-direction: column !important; /* Los pone uno debajo del otro */
+        align-items: center !important;
+        padding: 10px !important;
+    }
+
+    .producto-card {
+        width: 90% !important; /* La tarjeta ocupa casi todo el ancho del celular */
+        max-width: 320px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .producto-card img {
+        height: 200px !important; /* Ajustamos un poco la altura para el móvil */
+    }
+}

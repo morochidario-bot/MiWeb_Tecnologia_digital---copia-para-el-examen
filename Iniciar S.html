@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Tecnología Digital</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-image-side">
+            </div>
+
+        <div class="auth-form-side">
+            <div class="form-content">
+                <div class="header-form">
+                    <h1>Bienvenido</h1>
+                    <p>Ingresa tus datos para entrar al sistema</p>
+                </div>
+
+                <div id="mensaje-error" class="error-box" style="display: none;">
+                    ❌ Correo o contraseña incorrectos
+                </div>
+
+                <form action="/login" method="POST" id="formLogin">
+                    <div class="input-group">
+                        <label>Correo electrónico</label>
+                        <input type="email" name="correo" id="correoInput" placeholder="ejemplo@td.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit" onclick="guardarAntesDeEnviar()">Entrar</button>
+                </form>
+
+                <div class="form-footer">
+                    <p>¿Aún no tienes una cuenta? <a href="Registrar.html">Regístrate aquí</a></p>
+                    <a href="index.html" class="btn-back">← Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para guardar el nombre en LocalStorage ANTES de que el formulario se vaya al servidor
+        function guardarAntesDeEnviar() {
+            const correo = document.getElementById('correoInput').value;
+            if (correo) {
+                const nombreUser = correo.split('@')[0];
+                
+                // Guardar usuario actual
+                localStorage.setItem('usuarioLogueado', nombreUser);
+                
+                // Guardar en la lista de cuentas activas
+                let cuentas = JSON.parse(localStorage.getItem('cuentasActivas')) || [];
+                if (!cuentas.includes(nombreUser)) {
+                    cuentas.push(nombreUser);
+                }
+                localStorage.setItem('cuentasActivas', JSON.stringify(cuentas));
+            }
+        }
+
+        // Mostrar error si la URL tiene ?error=1
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('error') === '1') {
+            document.getElementById('mensaje-error').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

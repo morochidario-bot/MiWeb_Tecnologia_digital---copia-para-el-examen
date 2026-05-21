@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento - Tecnología Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="orden.css">
+</head>
+<body>
+
+    <header>
+        <div class="contenerdo-menu">
+            <a href="index.html">
+                <img src="logo_Tc.jpg" alt="Logo mini" class="logo-mini">
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="mantenimiento.html">Mantenimiento</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="panel.html" id="btn-panel-admin" style="display: none; background-color: #ffcc00; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; text-decoration: none; margin-right: 10px;">⚙️ Panel</a>
+                <div class="usuario-gestion" id="session-container">
+
+                <div class="user-trigger" id="user-trigger" style="cursor: pointer;">
+                <span id="user-display-name" style="color: white; font-weight: bold; margin-right: 10px;">Iniciar Sesión</span>
+                <span class="user-icon">👤</span>
+                </div>
+
+                <div id="account-dropdown" class="dropdown-content">
+                <div class="dropdown-header">Cuentas activas</div>
+                <ul id="accounts-list">
+                </ul>
+                <hr>
+                <a href="Iniciar S.html" id="link-añadir-cuenta" class="dropdown-link">➕ Añadir cuenta</a>
+                <a href="/logout" id="btn-logout" class="dropdown-link logout">❌ Cerrar sesión</a>
+                </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div style="height: 80px;"></div>
+
+    <main>
+        <form action="/registrar-mantenimiento" method="POST">
+            <div class="hoja-canon">
+                <input type="text" name="nombre" id="pos-nombre" list="lista-clientes" class="input-transparente" placeholder="Nombre completo" required autocomplete="off">
+                
+                <datalist id="lista-clientes"></datalist>
+
+                <input type="text" name="cedula" id="pos-cedula" class="input-transparente" placeholder="Cédula/RUC" required>
+                <input type="text" name="direccion" id="pos-direccion" class="input-transparente" placeholder="Dirección">
+                <input type="text" name="celular" id="pos-celular" class="input-transparente" placeholder="Celular">
+
+                <input type="text" name="equipo" id="pos-equipo" class="input-transparente" placeholder="Equipo (Ej: Cámara, Laptop)">
+                <input type="text" name="marca" id="pos-marca" class="input-transparente" placeholder="Marca">
+                <input type="text" name="modelo" id="pos-modelo" class="input-transparente" placeholder="Modelo">
+                <input type="text" name="n_serie" id="pos-serie" class="input-transparente" placeholder="N° Serie" required>
+                
+                <input type="text" name="accesorios" id="pos-accesorios" class="input-transparente" placeholder="Accesorios (Lente, bolso, cargador)">
+
+                <textarea name="falla" id="pos-falla" class="input-transparente" placeholder="Descripción del problema o falla..."></textarea>
+
+                <input type="number" step="0.01" name="total" id="pos-total" class="input-transparente" placeholder="Total: 0.00" oninput="calcularSaldo()">
+                <input type="number" step="0.01" name="abono" id="pos-abono" class="input-transparente" placeholder="Abono: 0.00" oninput="calcularSaldo()">
+                <input type="number" step="0.01" name="saldo" id="pos-saldo" class="input-transparente" placeholder="Saldo: 0.00" readonly>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <button type="submit" class="btn-cotizar" style="cursor: pointer;">Registrar Orden de Trabajo</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function calcularSaldo() {
+            const total = parseFloat(document.getElementById('pos-total').value) || 0;
+            const abono = parseFloat(document.getElementById('pos-abono').value) || 0;
+            const saldoField = document.getElementById('pos-saldo');
+            
+            const resultado = total - abono;
+            saldofield.value = resultado.toFixed(2);
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script src="auth-check.js"></script>
+    <script src="mantenimiento.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+.hoja-canon {
+    position: relative;
+    width: 1000px;
+    height: 700px;
+    margin: 0 auto;
+    background-image: url('orden.jpg'); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.input-transparente {
+    position: absolute;
+    background: transparent !important; 
+    border: none !important;             
+    outline: none !important;            
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 15px;
+    color: #003366;
+    box-shadow: none !important;       
+    appearance: none;                    
+}
+
+.input-transparente:-webkit-autofill,
+.input-transparente:-webkit-autofill:hover, 
+.input-transparente:-webkit-autofill:focus {
+    -webkit-text-fill-color: #003366 !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#pos-nombre    { top: 210px; left: 100px; width: 380px; }
+#pos-cedula    { top: 210px; left: 530px; width: 350px; }
+#pos-direccion { top: 235px; left: 100px; width: 380px; }
+#pos-celular   { top: 234px; left: 530px; width: 350px; }
+
+#pos-equipo    { top: 280px; left: 100px; width: 380px; }
+#pos-marca     { top: 305px; left: 100px; width: 380px; }
+#pos-modelo    { top: 327px; left: 100px; width: 380px; }
+#pos-serie     { top: 351px; left: 110px; width: 370px; }
+#pos-accesorios{ top: 371px; left: 110px; width: 370px; } 
+
+#pos-falla { 
+    top: 278px; 
+    left: 530px; 
+    width: 420px; 
+    height: 120px; 
+    white-space: normal; 
+    line-height: 22px; 
+    resize: none; 
+}
+
+#pos-abono     { top: 420px; left: 120px; width: 150px; }
+#pos-saldo     { top: 420px; left: 400px; width: 150px; }
+#pos-total     { top: 420px; left: 680px; width: 150px; }
+
+.btn-guardar {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 50px;
+    background-color: #d32f2f; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-guardar:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+@media print {
+    .btn-guardar { display: none; }
+    body { background: white; margin: 0; }
+    .hoja-canon { margin: 0; border: none; box-shadow: none; }
+}
+/* --- RESPONSIVE PARA EL FORMULARIO DE MANTENIMIENTO --- */
+
+/* Contenedor principal */
+.contenedor-mantenimiento {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El envoltorio de la "hoja" */
+.formulario-wrapper {
+    width: 100%;
+    max-width: 900px; /* Tamaño máximo para que se vea como hoja en PC */
+    overflow-x: auto; /* Si es muy pequeño, permite scroll lateral solo al formulario */
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Ajustes para Celulares (Modo Ventana pequeña) */
+@media (max-width: 768px) {
+    .formulario-wrapper {
+        padding: 5px;
+        transform: scale(0.95); /* Encogemos un poquito la escala para que quepa mejor */
+        transform-origin: top center;
+    }
+
+    header nav {
+        flex-direction: column; /* El menú de arriba se pone en lista */
+        gap: 10px;
+    }
+
+    /* El botón de Registrar se hace más grande para el dedo */
+    .btn-registrar {
+        width: 90% !important;
+        padding: 20px !important;
+        font-size: 18px !important;
+    }
+}
+
+/* Si la pantalla es MUY pequeña (iPhone SE o similares) */
+@media (max-width: 480px) {
+    .formulario-wrapper {
+        transform: scale(0.8); /* Lo encogemos más */
+    }
+    
+    h1 { font-size: 1.2rem; }
+}
+/* Cuando la ventana de Chrome/Brave es pequeña */
+@media (max-width: 980px) {
+    .formulario-wrapper {
+        width: 98% !important;
+        margin: 10px auto !important;
+        padding: 5px !important;
+        border: none !important;
+    }
+
+    /* ESTO ES LO QUE HACE LA MAGIA EN CHROME */
+    .orden-trabajo-form {
+        zoom: 0.75 !important; /* Achica todo el formulario al 75% */
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Botón de registro siempre visible y grande */
+    .btn-registrar {
+        width: 90% !important;
+        position: relative;
+        margin-top: 20px;
+    }
+}
+
+/* Si la ventana la haces MUY flaca */
+@media (max-width: 600px) {
+    .orden-trabajo-form {
+        zoom: 0.55 !important; /* Lo achica más para que no salga scroll */
+    }
+}
